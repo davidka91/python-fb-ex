@@ -7,5 +7,5 @@
       projects:
         - workingDirs:
           - "Projects/python-fb-example/requirements/"
-        - pipRequirementsFile: requirements.txt
+          pipRequirementsFile: requirements.txt
         
