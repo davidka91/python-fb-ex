@@ -1,0 +1,8 @@
+- params:
+    git:
+      repoName: python-fb-ex
+      branches:
+        - main
+    scan:
+      projects:
+        - pipRequirementsFile: requirements.txt
