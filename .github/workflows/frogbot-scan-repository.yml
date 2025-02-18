@@ -18,6 +18,8 @@ jobs:
         # The repository scanning will be triggered periodically on the following branches.
         branch: ["main"]
     steps:
+      - name: Check Python version
+        run: python --version
       - uses: jfrog/frogbot@v2
         env:
           # [Mandatory]
