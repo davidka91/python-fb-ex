@@ -14,6 +14,14 @@ jobs:
     # "frogbot" GitHub environment can approve the pull request to be scanned.
     environment: frogbot
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Specify the desired Python version
+
       - uses: jfrog/frogbot@v2
         env:
           # [Mandatory]
