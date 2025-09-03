@@ -23,7 +23,7 @@ jobs:
         run: python --version
       - uses: jfrog/frogbot@v2
         env:
-          JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JF_GIT_TOKEN: ${{ secrets.JF_GIT_TOKEN }}
           JFROG_CLI_LOG_LEVEL: DEBUG
           # JFrog platform URL
           JF_URL: ${{ secrets.JF_URL }}
