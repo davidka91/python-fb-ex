@@ -6,6 +6,7 @@ on:
     - cron: "0 0 * * *"
 permissions:
   contents: write
+  id-token: write
   pull-requests: write
   security-events: write
   # [Mandatory If using OIDC authentication protocol instead of JF_ACCESS_TOKEN]
@@ -22,14 +23,16 @@ jobs:
         run: python --version
       - uses: jfrog/frogbot@v2
         env:
-          # [Mandatory]
+          JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          JFROG_CLI_LOG_LEVEL: DEBUG
           # JFrog platform URL
           JF_URL: ${{ secrets.JF_URL }}
-          JFROG_CLI_LOG_LEVEL: DEBUG
+        with:
+          oidc-provider-name: "davidka"
+          
 
           # [Mandatory if JF_USER and JF_PASSWORD are not provided]
           # JFrog access token with 'read' permissions on Xray service
-          JF_ACCESS_TOKEN: ${{ secrets.JF_ACCESS_TOKEN }}
 
           # [Mandatory if JF_ACCESS_TOKEN is not provided]
           # JFrog username with 'read' permissions for Xray. Must be provided with JF_PASSWORD
@@ -41,13 +44,10 @@ jobs:
 
           # [Mandatory]
           # The GitHub token is automatically generated for the job
-          JF_GIT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          # [Mandatory]
-          # The name of the branch on which Frogbot will perform the scan
-          JF_GIT_BASE_BRANCH: ${{ matrix.branch }}
+
+
 
         # [Mandatory if using OIDC authentication protocol instead of JF_ACCESS_TOKEN]
         # Insert to oidc-provider-name the 'Provider Name' defined in the OIDC integration configured in the JPD
-        # with:
-        #   oidc-provider-name: ""
+          
