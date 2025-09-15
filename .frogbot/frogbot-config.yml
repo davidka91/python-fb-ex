@@ -6,6 +6,6 @@
     scan:
       projects:
         - workingDirs:
-          - "Projects/python-fb-example/requirements/"
+          - "Projects/python-fb-example/"
           pipRequirementsFile: requirements.txt
         
