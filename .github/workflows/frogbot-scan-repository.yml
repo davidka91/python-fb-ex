@@ -28,7 +28,7 @@ jobs:
           JFROG_CLI_LOG_LEVEL: DEBUG
           # JFrog platform URL
           JF_URL: ${{ secrets.JF_URL }}
-          JF_PROJECT: dk-a
+        
         with:
           oidc-provider-name: "davidka"
           
