@@ -2,3 +2,4 @@ requests==2.32.0
 pandas==2.2.3
 jose==1.0.0
 Flask==2.2.2
+picklescan==0.0.24
